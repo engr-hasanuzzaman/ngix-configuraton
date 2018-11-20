@@ -1,6 +1,6 @@
 # simpel nginx server that write custom header on response
 
-```lua
+```nginx
 server {
   listen 8080;
 
