@@ -28,3 +28,5 @@ server {
   }
 }
 ```
+- most of the built-in varialbe like `$uri`, `$request_uri` are readonly. If we try to assign value to readonly variable, nginx will generate error.
+- There are some built-in variable that are writeable like `$args`. Changing `$args` value will affect entire system.
