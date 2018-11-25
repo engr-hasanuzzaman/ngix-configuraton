@@ -33,9 +33,9 @@ directive {
 }
 ```
   - Ex
-  ```nginx
-  upstream api-server {
-    server 172.0.0.1:5000 fail_timeout=20;
-  }
-  ```
+    ```nginx
+    upstream api-server {
+      server 172.0.0.1:5000 fail_timeout=20;
+    }
+    ```
   
