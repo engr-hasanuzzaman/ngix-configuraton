@@ -39,3 +39,6 @@ directive {
     }
     ```
   
+(difference btw root and alias)[https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias]
+- trailing `/` is required with `alias` and it ignore `location` path
+- `root` include location path
