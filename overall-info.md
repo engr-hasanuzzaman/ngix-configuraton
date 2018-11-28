@@ -39,6 +39,9 @@ directive {
     }
     ```
   
-(difference btw root and alias)[https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias]
+[difference btw root and alias](https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias)
+
+[another article](https://www.techcoil.com/blog/understanding-the-difference-between-the-root-and-alias-directives-in-nginx/)
 - trailing `/` is required with `alias` and it ignore `location` path
 - `root` include location path
+[nginx for developer](https://carrot.is/coding/nginx_introduction)
