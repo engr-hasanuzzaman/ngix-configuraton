@@ -8,7 +8,7 @@ const ssh_user = 'ubuntu@ec2-13-251-130-124.ap-southeast-1.compute.amazonaws.com
 const ssh_access_cmd = 'ssh -i ' + pem_path + ' ' + ssh_user;
 // build related info
 const build_path = path.join(__dirname, 'build');
-const build_zip_name = 'build.zip';
+const build_zip_name = 'build.tar.gz';
 const build_zip_path = path.join(__dirname, build_zip_name);
 const dest_path = '/var/www/html/frontend';
 // guird clause
@@ -18,14 +18,14 @@ if(!fs.existsSync(build_path)){
 }
 
 //TODO: need to check build folder first
-exec('zip -r build.zip ' + build_path, (err, stdout, stderr) => {
+exec('tar -czvf build.tar.gz build', (err, stdout, stderr) => {
   if(err){
     error_msg('--zipping build folder is failed ' + err);
     process.exit(1);
   }
 
   succ_msg('zipping build folder is success');
-  upload_file(pem_path, build_zip_path, dest_path, () => { info_msg('uploaded') });
+  // upload_file(pem_path, build_zip_path, dest_path, () => { info_msg('uploaded') });
 });
 
 // upload file to server
