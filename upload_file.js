@@ -25,7 +25,7 @@ exec('tar -czvf build.tar.gz build', (err, stdout, stderr) => {
   }
 
   succ_msg('zipping build folder is success');
-  // upload_file(pem_path, build_zip_path, dest_path, () => { info_msg('uploaded') });
+  upload_file(pem_path, build_zip_path, dest_path, () => { info_msg('uploaded') });
 });
 
 // upload file to server
@@ -33,8 +33,8 @@ function upload_file(pem_path, target_path, des_path, call_back){
   if(fs.existsSync(pem_path) && fs.existsSync(target_path)){
     info_msg('----pem and targe path exist, now upload');
     let host_path = ssh_user + ':' + des_path;
-    let ssh_cmd = ssh_access_cmd + ' cd /var/www/html/frontend | unzip -o build.zip';
-    let ssh_mv = ssh_access_cmd + ' mv /var/www/html/frontend/build/* /var/www/html/frontend';
+    let ssh_cmd = ssh_access_cmd + ' cd /var/www/html/frontend | rm -r build | tar -xzvf build.tar.gz';
+    let ssh_mv = ssh_access_cmd + ' cp -r /var/www/html/frontend/build/* /var/www/html/frontend';
     
     // scp build.zip to server
     info_msg('uploading build.zip to server');
